@@ -47,8 +47,16 @@ class _ContactContentState extends State<ContactContent> {
                         ),
                       ),
                       TextButton(
-                        onPressed:  () async {
-                          const url = 'https://www.google.com/maps/place/KER+Group/@54.6307498,-8.4493531,17z/data=!3m1!4b1!4m5!3m4!1s0x485f1a456f41101f:0x236cca1908569a50!8m2!3d54.6307467!4d-8.4471644';
+                        onPressed: () async {
+    //   const String lat = "54.63075087035237";
+    //   const String lng = "-8.447166533058976";
+    //   const String mapUrl = "geo:$lat,$lng";
+    //   if (await canLaunch(mapUrl)) {
+    // await launch(mapUrl);
+    // } else {
+    //     throw "Couldn't launch Map";
+    //   }
+                          const url = "https://www.google.com/maps/place/KER+Group/@54.6307498,-8.4493531,17z/data=!3m1!4b1!4m5!3m4!1s0x485f1a456f41101f:0x236cca1908569a50!8m2!3d54.6307467!4d-8.4471644";
                           if (await canLaunch(url)) {
                             await launch(url);
                           } else {
@@ -129,7 +137,7 @@ class _ContactContentState extends State<ContactContent> {
               color: Colors.grey[300],
             ),
             width: double.infinity,
-            height: MediaQuery.of(context).size.height / 8,
+            height: MediaQuery.of(context).size.height / 6,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -202,20 +210,35 @@ class _ContactContentState extends State<ContactContent> {
                               ],
                             ).value,
                           ),
-                          Text(
-                            'info@ker.ie',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: ResponsiveValue(
-                                context,
-                                defaultValue: 22.0,
-                                valueWhen: const [
-                                  Condition.smallerThan(
-                                    name: MOBILE,
-                                    value: 18.0,
-                                  ),
-                                ],
-                              ).value,
+                          TextButton(
+                            onPressed: () async {
+                              String email = 'info@ker.ie';
+                              String subject = 'This is a test email';
+                              String body = 'This is a test email body';
+
+                              String emailUrl = "mailto:$email?subject=$subject&body=$body";
+
+                              if (await canLaunch(emailUrl)) {
+                                await launch(emailUrl);
+                              } else {
+                                throw "Error occurred sending an email";
+                              }
+                            },
+                            child: Text(
+                              'info@ker.ie',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: ResponsiveValue(
+                                  context,
+                                  defaultValue: 22.0,
+                                  valueWhen: const [
+                                    Condition.smallerThan(
+                                      name: MOBILE,
+                                      value: 18.0,
+                                    ),
+                                  ],
+                                ).value,
+                              ),
                             ),
                           ),
                         ],
@@ -239,20 +262,32 @@ class _ContactContentState extends State<ContactContent> {
                               ],
                             ).value,
                           ),
-                          Text(
-                            '+35374 973 1525',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: ResponsiveValue(
-                                context,
-                                defaultValue: 22.0,
-                                valueWhen: const [
-                                  Condition.smallerThan(
-                                    name: MOBILE,
-                                    value: 18.0,
-                                  ),
-                                ],
-                              ).value,
+                          TextButton(
+                            onPressed: () async {
+                              String telephoneNumber = '+35374 973 1525';
+                              String telephoneUrl = "tel:$telephoneNumber";
+                              if (await canLaunch(telephoneUrl)) {
+                              await launch(telephoneUrl);
+                              }
+                              else {
+                              throw "Error occurred trying to call that number.";
+                                }
+                            },
+                            child: Text(
+                              '+35374 973 1525',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: ResponsiveValue(
+                                  context,
+                                  defaultValue: 22.0,
+                                  valueWhen: const [
+                                    Condition.smallerThan(
+                                      name: MOBILE,
+                                      value: 18.0,
+                                    ),
+                                  ],
+                                ).value,
+                              ),
                             ),
                           ),
                         ],
@@ -358,21 +393,24 @@ class _ContactContentState extends State<ContactContent> {
                             style:
                                 ElevatedButton.styleFrom(primary: Colors.white),
                             // Set the child to be a text widget with purpose of button
-                            child: Text(
-                              'Service Charges',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: ResponsiveValue(
-                                    context,
-                                    defaultValue: 17.0,
-                                    valueWhen: const [
-                                      Condition.smallerThan(
-                                        name: MOBILE,
-                                        value: 14.0,
-                                      ),
-                                    ],
-                                  ).value,
-                                  fontWeight: FontWeight.bold),
+                            child: FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Text(
+                                'Service Charges',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: ResponsiveValue(
+                                      context,
+                                      defaultValue: 17.0,
+                                      valueWhen: const [
+                                        Condition.smallerThan(
+                                          name: MOBILE,
+                                          value: 14.0,
+                                        ),
+                                      ],
+                                    ).value,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                             // On press navigate to service charges
                             onPressed: () {

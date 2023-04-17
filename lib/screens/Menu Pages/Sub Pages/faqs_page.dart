@@ -32,7 +32,17 @@ class _FaqsPageState extends State<FaqsPage> {
         body: Column(
           children: [
             HeadingBar(icon: Icons.question_answer, title: "FAQs"),
-            SizedBox(height: 30),
+            SizedBox(height: 115,
+            child: Text
+              ('\nYou have got questions? \nWe have got answers.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 0, 90, 172),
+              )
+            )
+            ),
             // the tab bar with 4 items
             SizedBox(
               height: 50,
@@ -85,7 +95,7 @@ class _FaqsPageState extends State<FaqsPage> {
                       ),
                       child: Align(
                         alignment: Alignment.center,
-                        child: Text("Diagnosing"),
+                        child: Text("Diagnose"),
                       ),
                     ),
                   ),

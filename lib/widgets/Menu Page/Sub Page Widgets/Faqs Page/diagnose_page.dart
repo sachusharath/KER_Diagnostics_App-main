@@ -9,9 +9,12 @@ class DiagnoseFaq extends StatefulWidget {
 
 class _DiagnoseFaqState extends State<DiagnoseFaq> {
   final List<Item> _data = [
-    Item(name: "Question 1", text: "Answer to Question 1"),
-    Item(name: "Question 2", text: "Answer to Question 2"),
-    Item(name: "Question 3", text: "Answer to Question 3"),
+    Item(name: "I did not find my issue in the tool.",
+        text: "Please contact our support team for any additional issues."),
+    Item(name: "How do I use the tool?",
+        text: "A user guide manual is provided with the diagnose page on how to use the tool."),
+    Item(name: "The issue is not yet fixed after trying the fixes.",
+        text: "Our Engineers are always here to assist you. Please report the case."),
   ];
 
   @override
@@ -44,10 +47,10 @@ class _DiagnoseFaqState extends State<DiagnoseFaq> {
               body: ListTile(
                 title: Text(
                   item.text,
-                  style: TextStyle(fontSize: 19),
+                  style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
-                tileColor: Colors.white,
-                contentPadding: const EdgeInsets.all(32),
+                tileColor: Color.fromARGB(255, 0, 90, 172),
+                contentPadding: const EdgeInsets.all(20),
               ),
               isExpanded: item.isExpanded,
               canTapOnHeader: true,

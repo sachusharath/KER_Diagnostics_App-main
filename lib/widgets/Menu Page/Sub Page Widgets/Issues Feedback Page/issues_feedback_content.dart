@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:ker_diagnostics_app/widgets/Menu%20Page/heading_bar.dart';
 import 'package:getwidget/getwidget.dart';
@@ -9,6 +11,10 @@ class IssuesContent extends StatefulWidget {
 }
 
 class _IssuesContentState extends State<IssuesContent> {
+  // final fieldArea = null;
+  final fieldSatisfied = TextEditingController();
+  final fieldReport = TextEditingController();
+
   final formKey = new GlobalKey<FormState>();
 
   late String areas;
@@ -18,18 +24,28 @@ class _IssuesContentState extends State<IssuesContent> {
   late String message;
   late String _messageFeedback;
 
+  void clearText() {
+    // fieldArea.clear();
+    fieldSatisfied.clear();
+    fieldReport.clear();
+  }
+
   final List<Map<String, dynamic>> _items = [
     {
-      'value': 'area1',
-      'label': 'Area 1',
+      'value': 'diagnostics',
+      'label': 'Diagnostics',
     },
     {
-      'value': 'area2',
-      'label': 'Area 2',
+      'value': 'customersupport',
+      'label': 'Customer support',
     },
     {
-      'value': 'area3',
-      'label': 'Area 3',
+      'value': 'profile',
+      'label': 'Profile',
+    },
+    {
+      'value': 'other',
+      'label': 'Other',
     },
   ];
 
@@ -86,12 +102,12 @@ class _IssuesContentState extends State<IssuesContent> {
                   hintText: "Select",
                   items: _items,
                   autovalidate: false,
-                  validator: (value) {
-                    if (value == null || value.length == 0) {
-                      return 'Please select one or more options';
-                    }
-                    return null;
-                  },
+                  // validator: (value) {
+                  //   if (value == null || value.length == 0) {
+                  //     return 'Please select one or more options';
+                  //   }
+                  //   return null;
+                  // },
                   initialValue: areas,
                   onSaved: (value) {
                     if (value == null) return;
@@ -99,6 +115,7 @@ class _IssuesContentState extends State<IssuesContent> {
                       areas = value;
                     });
                   },
+                  // controller: fieldArea,
                 ),
               ),
               Container(
@@ -150,8 +167,8 @@ class _IssuesContentState extends State<IssuesContent> {
                       },
                       inactiveIcon: Icon(Icons.looks_one_outlined, size: 35),
                       customBgColor: GFColors.WARNING,
-                      activeBgColor: GFColors.SUCCESS,
-                      activeBorderColor: GFColors.DARK,
+                      activeBgColor: MaterialStateColor.resolveWith((states) => Colors.redAccent),
+                      activeBorderColor: MaterialStateColor.resolveWith((states) => Colors.redAccent),
                     ),
                     GFRadio(
                       type: GFRadioType.custom,
@@ -166,8 +183,8 @@ class _IssuesContentState extends State<IssuesContent> {
                       },
                       inactiveIcon: Icon(Icons.looks_two_outlined, size: 35),
                       customBgColor: GFColors.WARNING,
-                      activeBgColor: GFColors.SUCCESS,
-                      activeBorderColor: GFColors.DARK,
+                      activeBgColor: MaterialStateColor.resolveWith((states) => Colors.orange),
+                      activeBorderColor: MaterialStateColor.resolveWith((states) => Colors.orange),
                     ),
                     GFRadio(
                       type: GFRadioType.custom,
@@ -182,8 +199,8 @@ class _IssuesContentState extends State<IssuesContent> {
                       },
                       inactiveIcon: Icon(Icons.looks_3_outlined, size: 35),
                       customBgColor: GFColors.WARNING,
-                      activeBgColor: GFColors.SUCCESS,
-                      activeBorderColor: GFColors.DARK,
+                      activeBgColor: MaterialStateColor.resolveWith((states) => Colors.yellow),
+                      activeBorderColor: MaterialStateColor.resolveWith((states) => Colors.yellow),
                     ),
                     GFRadio(
                       type: GFRadioType.custom,
@@ -198,8 +215,8 @@ class _IssuesContentState extends State<IssuesContent> {
                       },
                       inactiveIcon: Icon(Icons.looks_4_outlined, size: 35),
                       customBgColor: GFColors.WARNING,
-                      activeBgColor: GFColors.SUCCESS,
-                      activeBorderColor: GFColors.DARK,
+                      activeBgColor: MaterialStateColor.resolveWith((states) => Colors.lightGreen),
+                      activeBorderColor: MaterialStateColor.resolveWith((states) => Colors.lightGreen),
                     ),
                     GFRadio(
                       type: GFRadioType.custom,
@@ -214,8 +231,8 @@ class _IssuesContentState extends State<IssuesContent> {
                       },
                       inactiveIcon: Icon(Icons.looks_5_outlined, size: 35),
                       customBgColor: GFColors.WARNING,
-                      activeBgColor: GFColors.SUCCESS,
-                      activeBorderColor: GFColors.DARK,
+                      activeBgColor: MaterialStateColor.resolveWith((states) => Colors.green),
+                      activeBorderColor: GFColors.SUCCESS,
                     ),
                   ],
                 ),
@@ -262,7 +279,7 @@ class _IssuesContentState extends State<IssuesContent> {
                     ),
                     // valid form by checking if empty - if empty return string if not empty return null
                     validator: (value) =>
-                        value!.isEmpty ? 'Enter a Message' : null,
+                        value!.isEmpty ? 'Enter a Message\n' : null,
                     // get value in field whenever it is changed
                     onChanged: (value) {
                       // set the state of name = value of text field
@@ -270,6 +287,7 @@ class _IssuesContentState extends State<IssuesContent> {
                         message = value;
                       });
                     },
+                    controller: fieldReport,
                   ),
                 ),
               ),
@@ -280,8 +298,20 @@ class _IssuesContentState extends State<IssuesContent> {
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromARGB(255, 0, 90, 172),
                   ),
-                  child: Text('Submit'),
-                  onPressed: _saveForm,
+
+                  child: const Text('Submit'),
+                  onPressed: () => {
+                    if (formKey.currentState!.validate()) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: Colors.green,
+                            content: const Text('Submitted successfully'),
+                          )
+                      ),
+                      clearText(),
+                    }
+                  },
+                  // _saveForm,
                 ),
               ),
             ],

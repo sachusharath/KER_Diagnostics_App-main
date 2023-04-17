@@ -28,22 +28,22 @@ void openCompDialog(BuildContext context) {
               SizedBox(
                 width: 65,
                 height: 25,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    primary: Color.fromARGB(255, 255, 0, 0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
-                      side: BorderSide(width: 2.5, color: Colors.black),
-                    ),
-                    textStyle: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop("Exited");
-                  },
-                  child: Text('Back'),
-                ),
+                // child: ElevatedButton(
+                //   style: ElevatedButton.styleFrom(
+                //     elevation: 0,
+                //     primary: Color.fromARGB(255, 255, 0, 0),
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(0),
+                //       side: BorderSide(width: 2.5, color: Colors.black),
+                //     ),
+                //     textStyle: TextStyle(
+                //         color: Colors.white, fontWeight: FontWeight.bold),
+                //   ),
+                //   onPressed: () {
+                //     Navigator.of(context).pop("Exited");
+                //   },
+                //   child: Text('Back'),
+                // ),
               ),
             ],
           )),
