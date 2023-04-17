@@ -1,11 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ker_diagnostics_app"
     xmlns:tools="http://schemas.android.com/tools">
-   <application
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <application
         tools:replace="android:label"
-        android:label="ker_diagnostics_app"
+        android:label="KER"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/round_launcher">
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -10,16 +10,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        constraints: const BoxConstraints.expand(),
-        color: const Color.fromARGB(255, 255, 255, 255),
-        child: Stack(
-          // Return the background, gradient and content widgets
-          children: <Widget>[
-            HomeBackground(),
-            HomeGradient(),
-            HomeContent(),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          height: double.infinity,
+          constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+          color: const Color.fromARGB(255, 255, 255, 255),
+          child: Stack(
+            // Return the background, gradient and content widgets
+            children: <Widget>[
+              HomeBackground(),
+              HomeGradient(),
+              HomeContent(),
+            ],
+          ),
         ),
       ),
     );

@@ -85,21 +85,24 @@ class DiagContent extends StatelessWidget {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.white),
                       // Set the child to be a text widget with purpose of button
-                      child: Text(
-                        'View Manual',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: ResponsiveValue(
-                              context,
-                              defaultValue: 17.0,
-                              valueWhen: const [
-                                Condition.smallerThan(
-                                  name: MOBILE,
-                                  value: 14.0,
-                                ),
-                              ],
-                            ).value,
-                            fontWeight: FontWeight.bold),
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          'View Manual',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: ResponsiveValue(
+                                context,
+                                defaultValue: 17.0,
+                                valueWhen: const [
+                                  Condition.smallerThan(
+                                    name: MOBILE,
+                                    value: 14.0,
+                                  ),
+                                ],
+                              ).value,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       // On press navigate to user guide
                       onPressed: () {
@@ -168,21 +171,24 @@ class DiagContent extends StatelessWidget {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: Colors.white),
                   // Set the child to be a text widget with purpose of button
-                  child: Text(
-                    'Contact Us',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: ResponsiveValue(
-                          context,
-                          defaultValue: 17.0,
-                          valueWhen: const [
-                            Condition.smallerThan(
-                              name: MOBILE,
-                              value: 14.0,
-                            ),
-                          ],
-                        ).value,
-                        fontWeight: FontWeight.bold),
+                  child: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      'Contact Us',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: ResponsiveValue(
+                            context,
+                            defaultValue: 17.0,
+                            valueWhen: const [
+                              Condition.smallerThan(
+                                name: MOBILE,
+                                value: 14.0,
+                              ),
+                            ],
+                          ).value,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                   // On press send message to ker
                   onPressed: () {

@@ -9,9 +9,12 @@ class GeneralFaq extends StatefulWidget {
 
 class _GeneralFaqState extends State<GeneralFaq> {
   final List<Item> _data = [
-    Item(name: "Question 1", text: "Answer to Question 1"),
-    Item(name: "Question 2", text: "Answer to Question 2"),
-    Item(name: "Question 3", text: "Answer to Question 3"),
+    Item(name: "How does billing work?",
+        text: "Bills are generated upon payment and a copy is provided through the email provided."),
+    Item(name: "Can other info be added to an invoice?",
+        text: "Please contact us through any of the helpline provided in the app to add more information to an invoice."),
+    Item(name: "Which devices can I use the app on?",
+        text: "The app is supported on Android and iOS mobile devices and tablets."),
   ];
 
   @override
@@ -44,10 +47,10 @@ class _GeneralFaqState extends State<GeneralFaq> {
               body: ListTile(
                 title: Text(
                   item.text,
-                  style: TextStyle(fontSize: 19),
+                  style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
-                tileColor: Colors.white,
-                contentPadding: const EdgeInsets.all(32),
+                tileColor: Color.fromARGB(255, 0, 90, 172),
+                contentPadding: const EdgeInsets.all(20),
               ),
               isExpanded: item.isExpanded,
               canTapOnHeader: true,

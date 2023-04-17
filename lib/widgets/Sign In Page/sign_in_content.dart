@@ -146,7 +146,7 @@ class _SignInContentState extends State<SignInContent> {
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              //Navigator.pushNamed(context, '');
+                              Navigator.pushNamed(context, '/Forgot');
                               print("forgot password");
                             },
                         ),

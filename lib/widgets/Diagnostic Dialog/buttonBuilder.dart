@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ker_diagnostics_app/widgets/Diagnostic%20Dialog/Compressor%20Dialog/high_low_dialog.dart';
 import 'package:ker_diagnostics_app/widgets/Diagnostic%20Dialog/causes_and_fixes_dialog.dart';
 
+import '../../utilities/nav_bar.dart';
+
 class ButtonBuilder extends StatefulWidget {
   final String title;
   final String choice;
@@ -140,8 +142,8 @@ _compIssueSwitch(BuildContext context, String choice) {
           context,
           "Compressor Issue",
           "High Amps",
-          "• Too much load from high water temp (should fix itself).\n• Fault in motor - won't come down itself.",
-          "• Will fix itself by limitation.\n• Check or replace motor.",
+          "• Too much load from high water temp (should fix itself).\n\n• Fault in motor - won't come down itself.",
+          "• Will fix itself by limitation.\n\n\n• Check or replace motor.",
         );
         print("Selected here " + choice);
       }
@@ -173,8 +175,8 @@ _compIssueSwitch(BuildContext context, String choice) {
           context,
           "Compressor Issue",
           "Capacity",
-          "• Faulty capacity solenoid coils.\n• Limitation stopping capacity increase.",
-          "• Replace capacity solenoid coils.\n• Check for limitations on screen.",
+          "• Faulty capacity solenoid coils.\n\n• Limitation stopping capacity increase.",
+          "• Replace capacity solenoid coils.\n\n• Check for limitations on screen.",
         );
       }
       break;
@@ -187,8 +189,8 @@ _compIssueSwitch(BuildContext context, String choice) {
           context,
           "Compressor Issue",
           "Low Oil Pressure",
-          "• Compressor oil receiver low level.\n• Compressor oil cold.\n• Dirty Oil Filter.",
-          "• Check level in oil receiver sight glass, top up if necessary.\n• Feel compressor oil sump, it should be warm - If not check oil heater.\n• Check oil filter differential pressure.\n• Replace oil Filter and oil, Refer to Howden manual.\n• Check pressures history screen.",
+          "• Compressor oil receiver low level.\n\n\n• Compressor oil cold.\n\n\n\n\n• Dirty Oil Filter.\n\n\n\n\n\n",
+          "• Check level in oil receiver sight glass, top up if necessary.\n\n• Feel compressor oil sump, it should be warm, If not check oil heater.\n\n• Check oil filter differential pressure.\n• Replace oil Filter and oil, Refer to Howden manual.\n• Check pressures history screen.",
         );
       }
       break;
@@ -201,8 +203,8 @@ _compIssueSwitch(BuildContext context, String choice) {
           context,
           "Compressor Issue",
           "High Discharge Pressure",
-          "• Lack of water flow through condenser.\n• Condenser pump inverter not controlling speed properly or condenser valve is not controlling properly.",
-          "• Check the sea inlet valve and strainer is open. Check that condenser pump is running when discharge pressure is high. Check for pump airlock. Check Condenser valve operation.\n• Have PID settings in PLC and inverter settings checked. Check Condenser Valve.\n• Reset this alarm on high pressure switch by pushing green button, then reset on touchscreen alarm page.\n• Check Pressures history page.",
+          "• Lack of water flow through condenser.\n\n\n\n\n\n\n\n\n• Condenser pump inverter not controlling speed properly or condenser valve is not controlling properly.\n\n\n\n\n\n\n",
+          "• Check the sea inlet valve and strainer is open. Check that condenser pump is running when discharge pressure is high. Check for pump airlock. Check Condenser valve operation.\n\n• Have PID settings in PLC and inverter settings checked. Check Condenser Valve.\n• Reset this alarm on high pressure switch by pushing green button, then reset on touchscreen alarm page.\n• Check Pressures history page.",
         );
       }
       break;
@@ -223,8 +225,8 @@ _compIssueSwitch(BuildContext context, String choice) {
           context,
           "Compressor Issue",
           "Low Suction Pressure",
-          "• Poor water  flow across cooler.\n• System low in gas.\n• Expansion valves are not regulating superheat correctly.\n• Expansion valve coils have become faulty.\n• Cooler is partially frozen.",
-          "• Check water strainer. Increase circ pump speed. Reset alarm on touchscreen alarm page.\n• Check gas level on screen and at pilot receiver, if the system is low it must be leak checked and topped up.\n• Check settings and expansion valve strainers.\n• Replace expansion valve coils, check pressures history page.\n• Flush cooler to thaw out.",
+          "• Poor water  flow across cooler.\n\n\n\n\n• System low in gas.\n\n\n\n\n\n• Expansion valves are not regulating superheat correctly.\n\n• Expansion valve coils have become faulty.\n\n\n• Cooler is partially frozen.",
+          "• Check water strainer. Increase circ pump speed. Reset alarm on touchscreen alarm page.\n\n• Check gas level on screen and at pilot receiver, if the system is low it must be leak checked and topped up.\n\n• Check settings and expansion valve strainers.\n\n• Replace expansion valve coils, check pressures history page.\n\n• Flush cooler to thaw out.",
         );
       }
       break;
@@ -238,7 +240,7 @@ _compIssueSwitch(BuildContext context, String choice) {
           "Compressor Issue",
           "Thermal Alarm",
           "• Compressor motor windings have got too hot.\n• This alarm shows on inverter.",
-          "• Check compressor motor.\n• Check motor amps.",
+          "• Check compressor motor. Check motor amps.",
         );
       }
       break;
@@ -261,8 +263,8 @@ _circPumpIssueSwitch(BuildContext context, String choice) {
           context,
           "Circ Pump Issue",
           "High Amps",
-          "• Blockage in pump.\n• Motor failure.",
-          "• Clear blockage.\n• Check or replace motor.",
+          "• Blockage in pump.\n\n• Motor failure.\n",
+          "• Clear blockage.\n\n• Check or replace motor.",
         );
       }
       break;
@@ -275,8 +277,8 @@ _circPumpIssueSwitch(BuildContext context, String choice) {
           context,
           "Circ Pump Issue",
           "No Flow",
-          "• Not enough water in tank.\n• Pump air locked.\n• Faulty or dirty flow meter.",
-          "• Fill tank.\n• Bleed pump / open seacock for a minute.\n• Clean or replace flow meter.",
+          "• Not enough water in tank.\n\n• Pump air locked.\n\n\n• Faulty or dirty flow meter.",
+          "• Fill tank.\n\n\n• Bleed pump / open seacock for a minute.\n\n• Clean or replace flow meter.",
         );
       }
       break;
@@ -337,8 +339,8 @@ _condenserIssueSwitch(BuildContext context, String choice) {
           context,
           "Condenser Issue",
           "In(Low Low) Temp",
-          "• Blockage in pump.\n• Motor failure.",
-          "• Clear blockage.\n• Check or replace motor.",
+          "• Blockage in pump.\n\n• Motor failure.\n",
+          "• Clear blockage.\n\n• Check or replace motor.",
         );
       }
       break;
@@ -361,8 +363,8 @@ _inverterIssueSwitch(BuildContext context, String choice) {
           context,
           "Inverter Issue",
           "Compressor Hz",
-          "• Power Failure.\n• E-stop is pressed.\n• Other Inverter Alarms.",
-          "• Reset fault by accepting alarm on touchscreen. Check breakers for inverters.\n• Reset E-stop and then reset alarm on touchscreen.\n• Check what the alarm is on the inverter before resetting on touchscreen and refer to the inverter manual for cause.",
+          "• Power Failure.\n\n\n\n\n• E-stop is pressed.\n\n\n\n• Other Inverter Alarms.\n\n\n\n\n",
+          "• Reset fault by accepting alarm on touchscreen. Check breakers for inverters.\n\n• Reset E-stop and then reset alarm on touchscreen.\n\n• Check what the alarm is on the inverter before resetting on touchscreen and refer to the inverter manual for cause.",
         );
       }
       break;
@@ -375,8 +377,8 @@ _inverterIssueSwitch(BuildContext context, String choice) {
           context,
           "Inverter Issue",
           "Circ Pump Hz",
-          "• Power Failure.\n• E-stop is pressed.\n• Other Inverter Alarms.",
-          "• Reset fault by accepting alarm on touchscreen. Check breakers for inverters.\n• Reset E-stop and then reset alarm on touchscreen.\n• Check what the alarm is on the inverter before resetting on touchscreen and refer to the inverter manual for cause.",
+          "• Power Failure.\n\n\n\n\n• E-stop is pressed.\n\n\n\n• Other Inverter Alarms.\n\n\n\n\n",
+          "• Reset fault by accepting alarm on touchscreen. Check breakers for inverters.\n\n• Reset E-stop and then reset alarm on touchscreen.\n\n• Check what the alarm is on the inverter before resetting on touchscreen and refer to the inverter manual for cause.",
         );
       }
       break;
@@ -389,8 +391,8 @@ _inverterIssueSwitch(BuildContext context, String choice) {
           context,
           "Inverter Issue",
           "Condenser Hz",
-          "• Power Failure.\n• E-stop is pressed.\n• Other Inverter Alarms.",
-          "• Reset fault by accepting alarm on touchscreen. Check breakers for inverters.\n• Reset E-stop and then reset alarm on touchscreen.\n• Check what the alarm is on the inverter before resetting on touchscreen and refer to the inverter manual for cause.",
+          "• Power Failure.\n\n\n\n\n• E-stop is pressed.\n\n\n\n• Other Inverter Alarms.\n\n\n\n\n",
+          "• Reset fault by accepting alarm on touchscreen. Check breakers for inverters.\n\n• Reset E-stop and then reset alarm on touchscreen.\n\n• Check what the alarm is on the inverter before resetting on touchscreen and refer to the inverter manual for cause.",
         );
       }
       break;
@@ -479,8 +481,8 @@ _panelIssueSwitch(BuildContext context, String choice) {
           context,
           "Panel Issue",
           "Emergency Stop Active",
-          "• Emergency Stop Pushed in.\n• E-Stop Power Supply Tripped or Fuse Blown.\n• Faulty Safety Relay.",
-          "• Reset Emergency Stop.\n• Check MCB.\n• Replace Relay.",
+          "• Emergency Stop Pushed in.\n\n• E-Stop Power Supply Tripped or Fuse Blown.\n\n• Faulty Safety Relay.",
+          "• Reset Emergency Stop.\n\n\n• Check MCB.\n\n\n• Replace Relay.",
         );
       }
       break;
@@ -503,8 +505,8 @@ _mixedIssueSwitch(BuildContext context, String choice) {
           context,
           "Mixed Issue",
           "High Liquid Level",
-          "• Blocked strainer/filter in liquid line.\n• Expansion valve coil burned out.",
-          "• Clean filter.\n• Replace coil.",
+          "• Blocked strainer/filter in liquid line.\n\n• Expansion valve coil burned out.",
+          "• Clean filter.\n\n\n• Replace coil.\n",
         );
       }
       break;
@@ -517,8 +519,8 @@ _mixedIssueSwitch(BuildContext context, String choice) {
           context,
           "Mixed Issue",
           "Low Liquid Level",
-          "• Poor evaporation in cooler.\n• Expansion valve stuck open.\n• System low in gas.",
-          "• Check flow through cooler.\n• Check expansion valves.\n• Check gas level and top up if necessary.",
+          "• Poor evaporation in cooler.\n\n• Expansion valve stuck open.\n\n• System low in gas.\n",
+          "• Check flow through cooler.\n\n• Check expansion valves.\n\n• Check gas level and top up if necessary.",
         );
       }
       break;
@@ -531,8 +533,8 @@ _mixedIssueSwitch(BuildContext context, String choice) {
           context,
           "Mixed Issue",
           "System Won't Start",
-          "• Alarm keeping system off.\n• Compressor may not be in auto mode.\n• No circulating flow.",
-          "• Clear alarms.\n• Put compressor into auto mode on condenser screen.\n• Check there is enough water in tank. Check strainer. Check for pump airlock.",
+          "• Alarm keeping system off.\n\n• Compressor may not be in auto mode.\n\n\n• No circulating flow.\n\n\n",
+          "• Clear alarms.\n\n\n• Put compressor into auto mode on condenser screen.\n\n• Check there is enough water in tank. Check strainer. Check for pump airlock.",
         );
       }
       break;
@@ -583,8 +585,8 @@ _highLowIssueSwitch(BuildContext context, String choice) {
           context,
           "Compressor Issue",
           "High Suction Temperature",
-          "• Not enough liquid entering the cooler.\n• Blocked liquid line strainers.\n• Burned out coils in expansion valve.",
-          "• Clean the liquid line strainers.\n• Check expansion valve may need to replace coils.",
+          "• Not enough liquid entering the cooler.\n• Blocked liquid line strainers.\n\n\n• Burned out coils in expansion valve.\n\n",
+          "• Clean the liquid line strainers.\n\n\n\n• Check expansion valve may need to replace coils.",
         );
       }
       break;
@@ -597,8 +599,8 @@ _highLowIssueSwitch(BuildContext context, String choice) {
           context,
           "Compressor Issue",
           "Low Suction Temperature",
-          "• Too much liquid entering cooler.\n• Poor circulation flow.",
-          "• Check expansion valve is not jammed open.\n• Check sea water strainers.\n• Check cooler is not frozen.",
+          "• Too much liquid entering cooler.\n\n• Poor circulation flow.\n\n\n",
+          "• Check expansion valve is not jammed open.\n\n• Check sea water strainers.\n• Check cooler is not frozen.",
         );
       }
       break;
@@ -611,8 +613,8 @@ _highLowIssueSwitch(BuildContext context, String choice) {
           context,
           "Compressor Issue",
           "High Discharge Temperature",
-          "• Liquid injection not working properly.\n• Low ammonia liquid level in pilot receiver.",
-          "• Check solenoids on liquid injection line.\n• Check gas level in system.\n• Check temp history screen.",
+          "• Liquid injection not working properly.\n\n• Low ammonia liquid level in pilot receiver.\n\n",
+          "• Check solenoids on liquid injection line.\n\n• Check gas level in system.\n• Check temp history screen.",
         );
       }
       break;
@@ -625,8 +627,8 @@ _highLowIssueSwitch(BuildContext context, String choice) {
           context,
           "Compressor Issue",
           "Low Discharge Temperature",
-          "• Discharge temp is not warm enough. Liquid injection could be stuck on or not working properly.\n• Cooler partially frozen.",
-          "• Check liquid injection solenoid. Check discharge temp sensor.\n• Thaw cooler by flushing with higher temp water.",
+          "• Discharge temp is not warm enough. Liquid injection could be stuck on or not working properly.\n\n• Cooler partially frozen.\n\n",
+          "• Check liquid injection solenoid. Check discharge temp sensor.\n\n\n\n• Thaw cooler by flushing with higher temp water.",
         );
       }
       break;
@@ -680,6 +682,13 @@ _exitOrContactSwitch(BuildContext context, String choice) {
       {
         Navigator.of(context).pop(choice);
         print("Contacting : " + choice);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    BotNavBar(
+                      selectedIndex: 2,
+                    )));
       }
       break;
 

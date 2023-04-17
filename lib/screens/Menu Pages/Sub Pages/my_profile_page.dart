@@ -23,15 +23,19 @@ class _MyProfilePageState extends State<MyProfilePage> {
         iconTheme: IconThemeData(color: Colors.black, size: 40),
         foregroundColor: Colors.black,
       ),
-      body: Container(
-        constraints: const BoxConstraints.expand(),
-        color: const Color.fromARGB(255, 255, 255, 255),
-        child: Stack(
-          children: <Widget>[
-            HeadingBar(icon: Icons.account_circle, title: "My Profile"),
-            ProfileForm(),
-            ProfileDrawings(),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          height: double.infinity,
+          // constraints: const BoxConstraints.expand(),
+          constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+          color: const Color.fromARGB(255, 255, 255, 255),
+          child: Stack(
+            children: <Widget>[
+              HeadingBar(icon: Icons.account_circle, title: "My Profile"),
+              ProfileForm(),
+              ProfileDrawings(),
+            ],
+          ),
         ),
       ),
     );

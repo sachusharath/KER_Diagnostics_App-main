@@ -49,10 +49,10 @@ class _SecurityFaqState extends State<SecurityFaq> {
               body: ListTile(
                 title: Text(
                   item.text,
-                  style: TextStyle(fontSize: 19),
+                  style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
-                tileColor: Colors.white,
-                contentPadding: const EdgeInsets.all(32),
+                tileColor: Color.fromARGB(255, 0, 90, 172),
+                contentPadding: const EdgeInsets.all(20),
               ),
               isExpanded: item.isExpanded,
               canTapOnHeader: true,

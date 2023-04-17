@@ -15,42 +15,46 @@ class ServiceCharges extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.black, size: 40),
         foregroundColor: Colors.black,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            color: Colors.grey[300],
-            width: double.infinity,
-            padding: EdgeInsets.only(left: 21, right: 21, bottom: 2, top: 2),
-            child: Text(
-              'Customer Support\nService Charges',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              color: Colors.grey[300],
+              width: double.infinity,
+              height: 150,
+              constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+              padding: EdgeInsets.only(left: 21, right: 21, bottom: 2, top: 2),
+              child: Text(
+                'Customer Support\nService Charges',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 21, right: 21, top: 10),
-            child: Text(
-              'Please see details below of fees aplicable for use of the KER Customer support. By accepting the ' +
-                  'Terms and Conditions of use of the service, Service Users are also accepting this Schedule of Fees. All fees shall be charged in Euros.',
-              style: TextStyle(
-                fontSize: 19,
+            Container(
+              padding: EdgeInsets.only(left: 21, right: 21, top: 10),
+              child: Text(
+                'Please see details below of fees applicable for use of the KER Customer support. By accepting the ' +
+                    'Terms and Conditions of use of the service, Service Users are also accepting this Schedule of Fees. All fees shall be charged in Euros.',
+                style: TextStyle(
+                  fontSize: 19,
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 30),
-          Container(
-            padding: EdgeInsets.only(left: 15, right: 15),
-            height: 600,
-            child: Image(
-              image: AssetImage("assets/images/serviceImage.JPG"),
-              fit: BoxFit.fill,
-            ),
-          )
-        ],
+            // SizedBox(height: 30),
+            Container(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              height: 600,
+              child: Image(
+                image: AssetImage("assets/images/serviceImage.JPG"),
+                fit: BoxFit.fill,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

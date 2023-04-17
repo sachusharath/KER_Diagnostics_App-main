@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ker_diagnostics_app/screens/Contact%20Pages/service_charges.dart';
 import 'package:ker_diagnostics_app/screens/Diagnostic%20Pages/user_guide_page.dart';
+import 'package:ker_diagnostics_app/screens/Entry%20Pages/forgot_password_page.dart';
 import 'package:ker_diagnostics_app/screens/Entry%20Pages/register_page.dart';
 import 'package:ker_diagnostics_app/screens/Entry%20Pages/sign_in_page.dart';
 import 'package:ker_diagnostics_app/screens/Entry%20Pages/welcome_page.dart';
@@ -14,12 +15,14 @@ import 'package:ker_diagnostics_app/screens/Menu%20Pages/Sub%20Pages/privacy_pag
 import 'package:ker_diagnostics_app/screens/Menu%20Pages/Sub%20Pages/share_page.dart';
 import 'package:ker_diagnostics_app/screens/Menu%20Pages/Sub%20Pages/terms_conds_page.dart';
 import 'package:ker_diagnostics_app/widgets/Diagnose%20Page/kommunicate_bot.dart';
+import 'package:ker_diagnostics_app/widgets/Forgot%20Password%20Page/forgot_password_content.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:ker_diagnostics_app/screens/Menu%20Pages/menu_page.dart';
 import 'package:ker_diagnostics_app/screens/Contact%20Pages/contact_page.dart';
 import 'package:ker_diagnostics_app/screens/Diagnostic%20Pages/diagnostics_page.dart';
 import 'package:ker_diagnostics_app/screens/Home%20Pages/home_page.dart';
 import 'package:ker_diagnostics_app/utilities/nav_bar.dart';
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 
 void main() {
   runApp(const MyApp()); 
@@ -79,6 +82,7 @@ class MyApp extends StatelessWidget {
         "/Welcome": ((context) => WelcomePage()),
         "/SignIn": ((context) => SignInPage()),
         "/Register": ((context) => RegisterPage()),
+        "/Forgot": ((context) => ForgotPasswordPage()),
       },
       // Set home to BotNavBar
       // home: BotNavBar(
@@ -86,5 +90,9 @@ class MyApp extends StatelessWidget {
       // ),
       home: WelcomePage(),
     );
+  }
+  Future<void> disableCapture() async {
+    //disable screenshots and record screen in current screen
+    await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   }
 }

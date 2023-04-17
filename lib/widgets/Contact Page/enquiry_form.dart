@@ -1,7 +1,11 @@
 /**import 'dart:html';*/
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:email_validator/email_validator.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class EnquiryForm extends StatefulWidget {
   const EnquiryForm({Key? key}) : super(key: key);
@@ -11,6 +15,13 @@ class EnquiryForm extends StatefulWidget {
 }
 
 class _EnquiryFormState extends State<EnquiryForm> {
+  final fieldName = TextEditingController();
+  final fieldContact = TextEditingController();
+  final fieldEmail = TextEditingController();
+  final fieldSubject = TextEditingController();
+  final fieldMessage = TextEditingController();
+  bool _isValid = false;
+
   // create a FormState key to identify form
   final _key = GlobalKey<FormState>();
 
@@ -20,6 +31,15 @@ class _EnquiryFormState extends State<EnquiryForm> {
   String message = '';
   // create a error state for error messages
   String error = '';
+  String _errorMessage = '';
+
+  void clearText() {
+    fieldName.clear();
+    fieldContact.clear();
+    fieldEmail.clear();
+    fieldSubject.clear();
+    fieldMessage.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,10 +122,17 @@ class _EnquiryFormState extends State<EnquiryForm> {
                             filled: true,
                             fillColor: Colors.white,
                             errorText: error,
+                            // contentPadding: EdgeInsets.all(15.0),
                           ),
                           // valid form by checking if empty - if empty return string if not empty return null
-                          validator: (value) =>
-                              value!.isEmpty ? 'Enter a Name' : null,
+                          validator: (value)   {
+                      if (value == null || value.isEmpty) {
+                      return 'Please enter your name';
+                      }
+                      return null;
+                      },
+                          // =>
+                          //     value!.isEmpty ? 'Enter a Name' : null,
                           // get value in field whenever it is changed
                           onChanged: (value) {
                             // set the state of name = value of text field
@@ -113,6 +140,7 @@ class _EnquiryFormState extends State<EnquiryForm> {
                               name = value;
                             });
                           },
+                          controller: fieldName,
                         ),
                       ),
                     ),
@@ -160,8 +188,8 @@ class _EnquiryFormState extends State<EnquiryForm> {
                             errorText: error,
                           ),
                           // valid form by checking if empty - if empty return string if not empty return null
-                          validator: (value) =>
-                              value!.isEmpty ? 'Enter a Name' : null,
+                          // validator: (value) =>
+                          //     value!.isEmpty ? 'Please enter your contact' : null,
                           // get value in field whenever it is changed
                           onChanged: (value) {
                             // set the state of name = value of text field
@@ -169,6 +197,7 @@ class _EnquiryFormState extends State<EnquiryForm> {
                               name = value;
                             });
                           },
+                          controller: fieldContact,
                         ),
                       ),
                     ),
@@ -194,6 +223,7 @@ class _EnquiryFormState extends State<EnquiryForm> {
                       child: ListTile(
                         // Name Form field
                         subtitle: TextFormField(
+                          controller: fieldEmail,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: ResponsiveValue(
@@ -217,8 +247,12 @@ class _EnquiryFormState extends State<EnquiryForm> {
                           ),
                           // valid form by checking if empty - if empty return string if not empty return null
                           validator: (value) =>
-                              value!.isEmpty ? 'Enter a Name' : null,
+                              value!.isEmpty ? 'Please enter your email' : null,
+                           // _isValid = EmailValidator.validate(fieldEmail.text);
                           // get value in field whenever it is changed
+                          // onFieldSubmitted: (val){
+                          //   validateEmail(val);
+                          // },
                           onChanged: (value) {
                             // set the state of name = value of text field
                             setState(() {
@@ -270,10 +304,11 @@ class _EnquiryFormState extends State<EnquiryForm> {
                             filled: true,
                             fillColor: Colors.white,
                             errorText: error,
+                            contentPadding: EdgeInsets.all(10.0),
                           ),
                           // valid form by checking if empty - if empty return string if not empty return null
                           validator: (value) =>
-                              value!.isEmpty ? 'Enter a Name' : null,
+                              value!.isEmpty ? 'Subject is mandatory' : null,
                           // get value in field whenever it is changed
                           onChanged: (value) {
                             // set the state of name = value of text field
@@ -281,6 +316,7 @@ class _EnquiryFormState extends State<EnquiryForm> {
                               name = value;
                             });
                           },
+                          controller: fieldSubject,
                         ),
                       ),
                     ),
@@ -330,10 +366,11 @@ class _EnquiryFormState extends State<EnquiryForm> {
                             filled: true,
                             fillColor: Colors.white,
                             errorText: error,
+                          // contentPadding: EdgeInsets.all(15.0),
                           ),
                           // valid form by checking if empty - if empty return string if not empty return null
                           validator: (value) =>
-                              value!.isEmpty ? 'Enter a Name' : null,
+                              value!.isEmpty ? 'Please write your message' : null,
                           // get value in field whenever it is changed
                           onChanged: (value) {
                             // set the state of name = value of text field
@@ -341,6 +378,7 @@ class _EnquiryFormState extends State<EnquiryForm> {
                               name = value;
                             });
                           },
+                          controller: fieldMessage,
                         ),
                       ),
                     ),
@@ -351,36 +389,6 @@ class _EnquiryFormState extends State<EnquiryForm> {
                   child: Wrap(
                     spacing: 30,
                     children: [
-                      // create container for the elevated button to submit form
-                      Container(
-                        height: 30,
-                        width: MediaQuery.of(context).size.width / 5,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 0, 90, 172)),
-                          // Set the child to be a text widget with purpose of button
-                          child: Text(
-                            'Submit',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: ResponsiveValue(
-                                context,
-                                defaultValue: 18.0,
-                                valueWhen: const [
-                                  Condition.smallerThan(
-                                    name: MOBILE,
-                                    value: 14.0,
-                                  ),
-                                ],
-                              ).value,
-                            ),
-                          ),
-                          // On press send message to ker
-                          onPressed: () async {
-                            // todo
-                          },
-                        ),
-                      ),
                       // create container for the elevated button to submit form
                       Container(
                         height: 30,
@@ -406,9 +414,71 @@ class _EnquiryFormState extends State<EnquiryForm> {
                             ),
                           ),
                           // On press send message to ker
-                          onPressed: () async {
-                            // todo
-                          },
+                          onPressed: clearText,
+                        ),
+                      ),
+                      // create container for the elevated button to submit form
+                      Container(
+                        height: 30,
+                        width: MediaQuery.of(context).size.width / 5,
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                primary: Color.fromARGB(255, 0, 90, 172)),
+                            // Set the child to be a text widget with purpose of button
+                            child: Text(
+                              'Submit',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: ResponsiveValue(
+                                  context,
+                                  defaultValue: 18.0,
+                                  valueWhen: const [
+                                    Condition.smallerThan(
+                                      name: MOBILE,
+                                      value: 14.0,
+                                    ),
+                                  ],
+                                ).value,
+                              ),
+                            ),
+                            // On press send message to ker
+                            onPressed: () => {
+                              _isValid = EmailValidator.validate(fieldEmail.text),
+                              if (_isValid) {
+                                Fluttertoast.showToast(
+                                    msg: "Valid Email",
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.TOP,
+                                    timeInSecForIosWeb: 1,
+                                    fontSize: 16.0),
+                              } else if (fieldEmail.text.isEmpty) {
+                                Fluttertoast.showToast(
+                                    msg: 'Enter Email',
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.TOP,
+                                    timeInSecForIosWeb: 1,
+                                    fontSize: 16.0),
+                              } else {
+                                Fluttertoast.showToast(
+                                    msg: 'Enter a Valid Email',
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.TOP,
+                                    timeInSecForIosWeb: 1,
+                                    fontSize: 16.0),
+                              },
+                              // Validate returns true if the form is valid, or false otherwise.
+                              if (_key.currentState!.validate()) {
+                                // If the form is valid, display a snackbar. In the real world,
+                                // you'd often call a server or save the information in a database.
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      backgroundColor: Colors.green,
+                                      content: const Text('Submitted successfully'),
+                                    )
+                                ),
+                                clearText(),
+                              }
+                            }
                         ),
                       ),
                     ],
@@ -421,4 +491,21 @@ class _EnquiryFormState extends State<EnquiryForm> {
       ),
     );
   }
+
+// void validateEmail(String val) {
+//   if(val.isEmpty){
+//     setState(() {
+//       _errorMessage = "Email can not be empty";
+//     });
+//   }else if(!EmailValidator.validate(val, true)){
+//     setState(() {
+//       _errorMessage = "Invalid Email Address";
+//     });
+//   }else{
+//     setState(() {
+//
+//       _errorMessage = "";
+//     });
+//   }
+// }
 }
