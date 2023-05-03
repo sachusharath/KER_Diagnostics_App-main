@@ -78,19 +78,19 @@ class DiagContent extends StatelessWidget {
                     width: 150,
                     // Setup box decoration for border control
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 2),
+                      border: Border.all(color: Color.fromARGB(255, 0, 90, 172), width: 2),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     // create the elevated button
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.white),
+                      style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 0, 90, 172)),
                       // Set the child to be a text widget with purpose of button
                       child: FittedBox(
                         fit: BoxFit.fitWidth,
                         child: Text(
                           'View Manual',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: ResponsiveValue(
                                 context,
                                 defaultValue: 17.0,
@@ -164,19 +164,19 @@ class DiagContent extends StatelessWidget {
                 width: 150,
                 // Setup box decoration for border control
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 2),
+                  border: Border.all(color: Color.fromARGB(255, 0, 90, 172), width: 2),
                   borderRadius: BorderRadius.circular(6),
                 ),
                 // create the elevated button
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.white),
+                  style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 0, 90, 172)),
                   // Set the child to be a text widget with purpose of button
                   child: FittedBox(
                     fit: BoxFit.fitWidth,
                     child: Text(
                       'Contact Us',
                       style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: ResponsiveValue(
                             context,
                             defaultValue: 17.0,

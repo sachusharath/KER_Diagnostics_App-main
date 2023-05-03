@@ -80,19 +80,19 @@ class _HomeContentState extends State<HomeContent> {
                     ).value,
                     // Setup box decoration for border control
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 2),
+                      border: Border.all(color: Color.fromARGB(255, 0, 90, 172), width: 2),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     // create the elevated button
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.white),
+                      style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 0, 90, 172)),
                       // Set the child to be a text widget with purpose of button
                       child: FittedBox(
                         fit: BoxFit.fitWidth,
                         child: Text(
                           'Summon the tool',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: ResponsiveValue(
                                 context,
                                 defaultValue: 16.0,
@@ -183,19 +183,19 @@ class _HomeContentState extends State<HomeContent> {
                     ).value,
                     // Setup box decoration for border control
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 2),
+                      border: Border.all(color: Color.fromARGB(255, 0, 90, 172), width: 2),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     // create the elevated button
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.white),
+                      style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 0, 90, 172)),
                       // Set the child to be a text widget with purpose of button
                       child: FittedBox(
                         fit: BoxFit.fitWidth,
                         child: Text(
                           'Contact Us',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: ResponsiveValue(
                                 context,
                                 defaultValue: 16.0,
@@ -236,7 +236,7 @@ class _HomeContentState extends State<HomeContent> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Your Account',
+                'Have any questions about the app?',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: ResponsiveValue(
@@ -253,7 +253,7 @@ class _HomeContentState extends State<HomeContent> {
               ),
               SizedBox(height: 5),
               Text(
-                'Stay connected to the app to view your vessel drawings and other updates.',
+                'Check the FAQs for any frequently asked questions in the menu section',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: ResponsiveValue(
@@ -286,19 +286,19 @@ class _HomeContentState extends State<HomeContent> {
                     ).value,
                     // Setup box decoration for border control
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 2),
+                      border: Border.all(color: Color.fromARGB(255, 0, 90, 172), width: 2),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     // create the elevated button
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.white),
+                      style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 0, 90, 172)),
                       // Set the child to be a text widget with purpose of button
                       child: FittedBox(
                         fit: BoxFit.fitWidth,
                         child: Text(
                           'Take me there',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: ResponsiveValue(
                                 context,
                                 defaultValue: 16.0,

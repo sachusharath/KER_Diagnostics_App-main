@@ -2,12 +2,20 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:ker_diagnostics_app/screens/Home%20Pages/home_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // set a delay of 3 seconds before navigating to the next page
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    });
     return Scaffold(
       body: Container(
         color: Color.fromARGB(255, 0, 90, 172),
@@ -23,13 +31,13 @@ class WelcomePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(height: 250),
+                SizedBox(height: 400),
                 Image(
                   image: AssetImage(
                     'assets/images/kerlogo.jpg',
                   ),
                 ),
-                SizedBox(height: 80),
+                /*SizedBox(height: 80),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.grey[400],
@@ -69,7 +77,7 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
+                ),*/
               ],
             ),
           ),

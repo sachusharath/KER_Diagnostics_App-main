@@ -13,12 +13,12 @@ class MenuContent extends StatelessWidget {
     // return the content in a list view
     return ListView(
       children: <Widget>[
-        _buildMenu(context, "profile", Icons.account_circle, "My Profile"),
+        /*_buildMenu(context, "profile", Icons.account_circle, "My Profile"),*/
         _buildMenu(context, "privacy", Icons.lock, "Privacy Policy"),
         _buildMenu(context, "about", Icons.info, "About the App"),
-        _buildMenu(context, "help", Icons.help, "Help"),
+        /*_buildMenu(context, "help", Icons.help, "Help"),*/
         _buildMenu(context, "tandc", Icons.description, "Terms and Conditions"),
-        _buildMenu(context, "issues", Icons.chat, "Report Issues & Feedback"),
+        /*_buildMenu(context, "issues", Icons.chat, "Report Issues & Feedback"),*/
         _buildMenu(context, "faqs", Icons.question_answer, "FAQs"),
         _buildMenu(context, "rate", Icons.star_rate, "Rate Us"),
         _buildMenu(context, "share", Icons.share, "Share the App"),
@@ -38,7 +38,7 @@ class MenuContent extends StatelessWidget {
                 ],
               ).value,
               // create the elevated button
-              child: ElevatedButton(
+             /* child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.grey[300], elevation: 0),
                 // Set the child to be a text widget with purpose of button
@@ -63,7 +63,7 @@ class MenuContent extends StatelessWidget {
                   print("Logged out");
                   Navigator.pushNamed(context, '/Welcome');
                 },
-              ),
+              ),*/
             ),
           ],
         ),

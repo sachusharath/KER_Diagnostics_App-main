@@ -89,9 +89,9 @@ class _MenuBuilderState extends State<MenuBuilder> {
                           ),
                         ],
                       ).value,
-                      child: Image(
+                      /*child: Image(
                         image: AssetImage('assets/images/freeBadge.JPG'),
-                      ),
+                      ),*/
                     ),
                   ],
                 ),

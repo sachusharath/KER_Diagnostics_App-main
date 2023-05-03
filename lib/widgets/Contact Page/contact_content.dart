@@ -64,19 +64,22 @@ class _ContactContentState extends State<ContactContent> {
                           }
                         },
                         style: TextButton.styleFrom(
-                          padding: const EdgeInsets.all(15),
+                          padding: const EdgeInsets.fromLTRB(0, 15, 15, 10),
                         ),
                         child: Row(
-                          mainAxisSize: MainAxisSize.min,
+                          mainAxisSize: MainAxisSize.max,
                           children: const [
-                            Icon(Icons.location_pin),
-                            SizedBox(height: 5),
+                            Icon(Icons.location_pin, color: Colors.green,),
+                            SizedBox(height: 5, width: 15,),
+                             // set isHovered to false when the mouse exits the widget
                             Text('St Catherines Road,\nKillybegs,\nCo.Donegal,\nIreland F94 XY45 ',
                                 style: TextStyle(
-                                    color: Color(0xFFA294C2),
-                                    fontSize: 14.0,
+                                     // change the text color to blue when isHovered is true
+                                    /*color: Colors.blue,*/
+                                    fontSize: 15.0,
                                     fontWeight: FontWeight.w500)),
                           ],
+                          mainAxisAlignment: MainAxisAlignment.start,
                         ),
                       ),
 
@@ -150,8 +153,9 @@ class _ContactContentState extends State<ContactContent> {
                       Wrap(
                         spacing: 10,
                         children: [
-                          Icon(
-                            Icons.language,
+                         Padding(padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
+                          child: Icon(
+                            Icons.language_rounded,
                             color: Colors.blue,
                             size: ResponsiveValue(
                               context,
@@ -164,6 +168,7 @@ class _ContactContentState extends State<ContactContent> {
                               ],
                             ).value,
                           ),
+    ),
                           TextButton(
                             onPressed: () async {
                               const url = 'https://www.ker.ie';
@@ -176,7 +181,7 @@ class _ContactContentState extends State<ContactContent> {
                           child: Text(
                             'https://www.ker.ie',
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.blue,
                               fontSize: ResponsiveValue(
                                 context,
                                 defaultValue: 22.0,
@@ -196,7 +201,8 @@ class _ContactContentState extends State<ContactContent> {
                       Wrap(
                         spacing: 10,
                         children: [
-                          Icon(
+                          Padding(padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
+                          child: Icon(
                             Icons.email_outlined,
                             color: Colors.red,
                             size: ResponsiveValue(
@@ -209,6 +215,7 @@ class _ContactContentState extends State<ContactContent> {
                                 ),
                               ],
                             ).value,
+                          ),
                           ),
                           TextButton(
                             onPressed: () async {
@@ -227,7 +234,7 @@ class _ContactContentState extends State<ContactContent> {
                             child: Text(
                               'info@ker.ie',
                               style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.blue,
                                 fontSize: ResponsiveValue(
                                   context,
                                   defaultValue: 22.0,
@@ -248,7 +255,8 @@ class _ContactContentState extends State<ContactContent> {
                       Wrap(
                         spacing: 10,
                         children: [
-                          Icon(
+                          Padding(padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
+                          child: Icon(
                             Icons.call,
                             color: Colors.green,
                             size: ResponsiveValue(
@@ -261,6 +269,7 @@ class _ContactContentState extends State<ContactContent> {
                                 ),
                               ],
                             ).value,
+                          ),
                           ),
                           TextButton(
                             onPressed: () async {
@@ -276,7 +285,7 @@ class _ContactContentState extends State<ContactContent> {
                             child: Text(
                               '+35374 973 1525',
                               style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.blue,
                                 fontSize: ResponsiveValue(
                                   context,
                                   defaultValue: 22.0,
@@ -303,9 +312,131 @@ class _ContactContentState extends State<ContactContent> {
           SizedBox(
             height: MediaQuery.of(context).size.height / 60,
           ),
-
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+            ),
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height / 6.9,
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(bottom: 10),
+                      child: Image.asset(
+                        'assets/images/important.png',
+                        height: MediaQuery.of(context).size.height / 22,
+                        width: MediaQuery.of(context).size.width / 6,
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width / 1.1,
+                      child: Text(
+                        'Do you want report some issue?',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: ResponsiveValue(
+                            context,
+                            defaultValue: 22.0,
+                            valueWhen: const [
+                              Condition.smallerThan(
+                                name: MOBILE,
+                                value: 15.0,
+                              ),
+                            ],
+                          ).value,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Wrap(
+                      spacing: 5,
+                      children: [
+                        Text(
+                          'Do you want to enquire about our services?',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: ResponsiveValue(
+                              context,
+                              defaultValue: 22.0,
+                              valueWhen: const [
+                                Condition.smallerThan(
+                                  name: MOBILE,
+                                  value: 15.0,
+                                ),
+                              ],
+                            ).value,
+                          ),
+                        ),
+                        Container(
+                          height: 32,
+                          width: ResponsiveValue(
+                            context,
+                            defaultValue: 165.0,
+                            valueWhen: const [
+                              Condition.smallerThan(
+                                name: MOBILE,
+                                value: 145.0,
+                              ),
+                            ],
+                          ).value,
+                          // Setup box decoration for border control
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Color.fromARGB(255, 0, 90, 172), width: 2),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          // create the elevated button
+                          child: ElevatedButton(
+                            style:
+                            ElevatedButton.styleFrom(primary: Color.fromARGB(255, 0, 90, 172)),
+                            // Set the child to be a text widget with purpose of button
+                            child: FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Text(
+                                'Enquiry form',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: ResponsiveValue(
+                                      context,
+                                      defaultValue: 17.0,
+                                      valueWhen: const [
+                                        Condition.smallerThan(
+                                          name: MOBILE,
+                                          value: 14.0,
+                                        ),
+                                      ],
+                                    ).value,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            // On press navigate to service charges
+                            onPressed: () async {
+                              const url = 'https://www.ker.ie/contact/';
+                              if(await canLaunch(url)){
+                                await launch(url);
+                              }else {
+                                throw 'Could not launch $url';
+                              }
+                            },
+                            /*onPressed: ()  {
+                              Navigator.pushNamed(context, '/Charges');
+                            },*/
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            padding: EdgeInsets.only(left: 10, top: 10),
+          ),
           // enquiry form widget
-          EnquiryForm(),
+         /* EnquiryForm(),*/
 
           // Space out content
           SizedBox(
@@ -325,7 +456,7 @@ class _ContactContentState extends State<ContactContent> {
                     Container(
                       padding: EdgeInsets.only(bottom: 10),
                       child: Image.asset(
-                        'assets/images/importantSign.JPG',
+                        'assets/images/important.png',
                         height: MediaQuery.of(context).size.height / 22,
                         width: MediaQuery.of(context).size.width / 6,
                       ),
@@ -385,20 +516,20 @@ class _ContactContentState extends State<ContactContent> {
                           ).value,
                           // Setup box decoration for border control
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 2),
+                            border: Border.all(color: Color.fromARGB(255, 0, 90, 172), width: 2),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           // create the elevated button
                           child: ElevatedButton(
                             style:
-                                ElevatedButton.styleFrom(primary: Colors.white),
+                                ElevatedButton.styleFrom(primary: Color.fromARGB(255, 0, 90, 172)),
                             // Set the child to be a text widget with purpose of button
                             child: FittedBox(
                               fit: BoxFit.fitWidth,
                               child: Text(
                                 'Service Charges',
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontSize: ResponsiveValue(
                                       context,
                                       defaultValue: 17.0,
