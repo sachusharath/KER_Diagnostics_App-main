@@ -4,6 +4,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ker_diagnostics_app/screens/Home%20Pages/home_page.dart';
 
+import '../../utilities/nav_bar.dart';
+
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
@@ -12,9 +14,11 @@ class WelcomePage extends StatelessWidget {
     // set a delay of 3 seconds before navigating to the next page
     Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
-      );
+          context,
+          MaterialPageRoute(
+              builder: (context) => BotNavBar(
+                selectedIndex: 0,
+              )));
     });
     return Scaffold(
       body: Container(

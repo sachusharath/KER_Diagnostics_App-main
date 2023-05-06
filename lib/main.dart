@@ -88,7 +88,7 @@ class MyApp extends StatelessWidget {
       // home: BotNavBar(
       //  selectedIndex: 0,
       // ),
-      home: WelcomePage(),
+      home: SafeArea(child: WelcomePage()),
     );
   }
   Future<void> disableCapture() async {

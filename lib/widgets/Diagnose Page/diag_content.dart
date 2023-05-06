@@ -45,7 +45,7 @@ class DiagContent extends StatelessWidget {
             ],
           ).value,
         ),
-        Container(
+        /*Container(
           decoration: BoxDecoration(
             color: Colors.grey[300],
           ),
@@ -132,7 +132,7 @@ class DiagContent extends StatelessWidget {
           ),
           padding: EdgeInsets.only(left: 30, top: 13),
           margin: EdgeInsets.only(top: 60, bottom: 15),
-        ),
+        ),*/
         Container(
           decoration: BoxDecoration(
             color: Colors.grey[300],
